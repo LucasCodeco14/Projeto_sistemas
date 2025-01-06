@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>ChefShare - receitas</title>
+</head>
+<body>
+    <h1>Receitas</h1>
+    <ul>
+        {% for receita in receitas %}
+        <li>
+            <h2>{{ receita.nome }}</h2>
+            <p>{{ receita.descricao }}</p>
+            <p><strong>Ingredientes:</strong> {{ receita.ingredientes }}</p>
+            <p><strong>Modo de Preparo:</strong> {{ receita.modo_preparo }}</p>
+            <small>Criado em: {{ receita.data_criacao|date:"d/m/Y H:i" }}</small>
+        </li>
+            <li>{{ receita.name }} - {{ receita.prep_time }} mins</li>
+        {% empty %}
+            <li>No receitas found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
